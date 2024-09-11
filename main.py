@@ -9,8 +9,8 @@ from supabase import create_client
 # Load environment variables
 load_dotenv()
 
-MAX_NAME_CHAR = 15
-MAX_MESSAGE_CHAR = 50
+MAX_NAME_CHAR = 30
+MAX_MESSAGE_CHAR = 60
 TIMESTAMP_FORMAT = "%Y-%m-%d %H:%M:%S %Z"
 
 # Initialize Supabase client
