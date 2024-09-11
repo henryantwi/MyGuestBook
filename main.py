@@ -4,7 +4,6 @@ from datetime import datetime
 import pytz
 from dotenv import load_dotenv
 from fasthtml.common import *
-from icecream import ic
 from supabase import create_client
 
 # Load environment variables
@@ -21,7 +20,9 @@ supabase = create_client(
 )
 
 
-app, rt = fast_app()
+app, rt = fast_app(
+    hdrs=(Link(rel='icon', type='assets/x-icon', href='/assets/book.png'),),
+)
 
 
 def get_gmt_time() -> str:
@@ -88,7 +89,7 @@ def render_content():
         P(Em("Write something nicess!")),
         form,
         Div(
-            "Made with ❤️ by M ",
+            "Made with ❤️ by ",
             A("Henry", href="https://www.github.com/henryantwi", target="_blank"),
         ),
         Hr(),
@@ -103,7 +104,7 @@ def get():
 
 @rt("/submit-message", methods=["POST"])
 def post(name: str, message: str):
-    add_message(name, message)
+    add_message(name.capitalize(), message.title())
     return render_message_list()
 
 
