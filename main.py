@@ -77,7 +77,7 @@ def render_content():
                 maxlength=MAX_MESSAGE_CHAR,
             ),
             Button("Submit", type="submit"),
-            role="group",
+            # role="group",
         ),
         method="post",
         hx_post="/submit-message",  # Send POST request to the /submit-message endpoint
